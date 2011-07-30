@@ -1,0 +1,36 @@
+.feature1.grid
+  &.page-1
+    /*background: $primary*/
+    background-image: url('/treesaver/static/linen-texture.jpg')
+    text-align: center
+    .runningtitle
+      margin: 30px 50px 70px 50px
+      padding: 0 0 20px 0
+      font-family: $headline
+      +solid($line-height*1.5)
+      border-bottom: 3px double #555
+      background: none
+      *
+        opacity: 0.3
+    .title
+      padding-top: 50px
+      color: white
+      opacity: 0.3
+      +letterpress(#222)
+      h1
+        +solid($line-height*3)
+        letter-spacing: -4px
+        word-spacing: 5px
+        padding: 30px 100px
+  .runningtitle
+    position: absolute
+    background-image: url('/treesaver/static/linen-texture.jpg')
+    top: 0px
+    left: 0px
+    right: 0px
+    height: $line-height
+    padding: 3px 10px
+    font-weight: bold
+    *
+      color: white
+      opacity: 0.7
