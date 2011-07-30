@@ -1,0 +1,32 @@
+<!doctype html>
+<html class="no-js no-treesaver">
+{% autoescape off %}
+<head>
+    <title>{{ article.title }}</title>
+    {% include 'article_header.html' %}
+</head>
+<body>
+	<!-- Set your default grid here. -->
+    <article data-grids="{% if article.grid %}{{ article.grid.class_id }}{% else %}feature1{% endif %}">
+	    <div class="microdata" itemscope>
+	        <span itemprop="publication">{{ article.issue.publication }}</span>
+	        <span itemprop="title">{{ article.title }}&mdash;</span>
+	    </div>
+	
+        <figure>
+		    <h1 data-sizes="title fallback">{{ article.title }}</h1>
+		</figure>
+        
+        <!-- Article Image Figures -->
+		{% if article.images.count > 0 %}
+		    {% for image in article.images.all %}
+                {{ image.figure }}
+	        {% endfor %}
+	    {% endif %}
+	    
+	    <!-- Article Text Markup -->
+	    {{ article.get_markup }}
+    </article>
+</body>
+</html>
+{% endautoescape %}

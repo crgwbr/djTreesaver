@@ -1,0 +1,21 @@
+<!doctype html>
+<html class="no-js no-treesaver">
+{% autoescape off %}
+<head>
+    <title>Cover</title>
+    {% include 'article_header.html' %}
+</head>
+<body>
+    <article data-grids="cover">
+	    <div class="microdata" itemscope>
+	      <span itemprop="publication">{{ cover.article.issue.name }}</span>
+	      <span itemprop="subject">{{ cover.article.name }}</span>
+	    </div>
+	    
+	    {{ cover.figure }}
+	    
+	    <p>Cover</p>
+    </article>
+</body>
+</html>
+{% endautoescape %}

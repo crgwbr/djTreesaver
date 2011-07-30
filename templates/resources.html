@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Resources</title>
+</head>
+	
+<body>
+    <h1>{{ publication }}</h1>
+	
+	<div class="chrome">
+		<div class="viewer"></div>
+		<div class="toc">
+			<div id="toc-tab">
+				<div>
+				    <span>Contents</span>
+				</div>
+			</div>
+			<div data-bind="toc" class="toc-alley">
+			    <div data-bind="article" class="article template">
+				    <a data-bind="url:href" class="url">
+	                    <img data-bind="thumb:src" class="thumb" height="40px" width="40px" />
+	                    <span data-bind="title" class="title"></span>
+	                </a>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+   	<div class="lightbox">
+      <div class="container"></div>
+    </div>
+
+    {% autoescape off %}
+    {% for grid in grids %}
+    {{ grid.html.read }}
+    {% endfor %}
+    {% endautoescape %}
+	
+	<div class="loading">
+		Loading
+	</div>
+	<div class="error">
+		Error
+	</div>
+</body>
+</html>

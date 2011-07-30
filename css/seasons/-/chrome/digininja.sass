@@ -1,0 +1,116 @@
+$button: $page
+$chrome: $page
+
+
+// BODY COLOR
+body
+  background: $body
+  overflow: hidden
+
+//  GRIDS
+.grid
+  margin: $gutter
+  background-color: $page
+
+
+// Basic metrics for chrome
+.chrome
+  position: absolute
+  display: block
+  bottom: 0
+  top: 0
+  left: 0
+  right: 0
+  .viewer
+    position: absolute
+    display: block
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 0
+  .toc
+    position: absolute
+    top: 0
+    right: auto
+    bottom: 0px
+    left: -240px
+    width: 290px
+    #toc-tab
+      position: absolute
+      top: 50%
+      left: 240px
+      *
+        cursor: pointer
+      div
+        position: relative
+        top: -50px
+        left: -20px
+        width: 50px
+        height: 100px
+        background: url('/treesaver/static/linen-texture.jpg')
+        +border-radius(10px)
+        +box-shadow(0 0 10px #000)
+        span
+          position: relative
+          left: 10px
+          display: block
+          -webkit-transform: rotate(90deg)
+          -moz-transform: rotate(90deg)
+          position: relative
+          top: 38px
+          color: #CCC
+    .toc-alley
+      position: absolute
+      display: block
+      top: 0
+      right: 240px
+      bottom: 0
+      left: 0
+      width: 240px
+      z-index: 100
+      background: url('/treesaver/static/linen-texture.jpg')
+      border-right: 1px solid #111
+      overflow: auto
+      .article, .article .url
+        width: 225px
+        height: 50px
+        display: block
+        clear: both
+        padding: 5px 0 5px 0
+      .article:hover
+        background: rgba(200, 200, 200, 0.3)
+      .article.current
+        background: rgba(200, 200, 200, 0.15)
+      .thumb
+        float: left !important
+        width: 40px
+        display: block
+      .title
+        float: left
+        width: 170px
+        padding: 0 5px 0 5px
+        display: block
+        color: #CCC
+        font-size: 10px
+
+
+// LIGHTBOX
+
+.lightbox
+  position: absolute
+  overflow: hidden
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 99
+  .container
+    position: absolute
+    overflow: hidden
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    padding: 10px
+    background: #000
