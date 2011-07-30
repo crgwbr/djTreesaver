@@ -6,10 +6,10 @@ djTreesaver is a plugin Django app that makes publishing content to Treesaver.js
 
 ## Requirements
 
-django :: https://www.djangoproject.com/
-BeautifulSoup :: http://www.crummy.com/software/BeautifulSoup/
-PIL :: http://www.pythonware.com/products/pil/
-Sass :: http://sass-lang.com/
+    django :: https://www.djangoproject.com/
+    BeautifulSoup :: http://www.crummy.com/software/BeautifulSoup/
+    PIL :: http://www.pythonware.com/products/pil/
+    Sass :: http://sass-lang.com/
 
 ## Installation
 
