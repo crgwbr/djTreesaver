@@ -19,7 +19,7 @@ djTreesaver is a plugin Django app that makes publishing content to Treesaver.js
 
 3. Add djTreesaver to your installed apps tuple
 
-    INSTALLED_APPS = (
+        INSTALLED_APPS = (
 	    ...
 	    'djTreesaver',
 	    ...
@@ -27,7 +27,7 @@ djTreesaver is a plugin Django app that makes publishing content to Treesaver.js
 	
 4. Add the djTreesaver urls file to your urls.py file
 
-    urlpatterns = patterns('',    
+        urlpatterns = patterns('',    
 	    # djTreesaver
 	    (r'^treesaver/', include('djTreesaver.urls')),
 	    ...
