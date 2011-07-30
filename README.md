@@ -20,18 +20,18 @@ djTreesaver is a plugin Django app that makes publishing content to Treesaver.js
 3. Add djTreesaver to your installed apps tuple
 
         INSTALLED_APPS = (
-	    ...
-	    'djTreesaver',
-	    ...
-	)
+	        ...
+	        'djTreesaver',
+	        ...
+	    )
 	
 4. Add the djTreesaver urls file to your urls.py file
 
         urlpatterns = patterns('',    
-	    # djTreesaver
-	    (r'^treesaver/', include('djTreesaver.urls')),
-	    ...
-	)
+	        # djTreesaver
+	        (r'^treesaver/', include('djTreesaver.urls')),
+	        ...
+	    )
 	
 5. From the Django Admin Site, upload a Treesaver grid by using the DjTreesaver -> Grids form.  You can use one of the example grids in the djTreesaver/example_grids/ directory.  You can read more about grids here: http://treesaverjs.com/
 	
