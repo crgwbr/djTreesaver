@@ -9,10 +9,13 @@ import models
 
 # Serve image at specified size
 def serve_image(request, filename, width=None, height=None, root=settings.MEDIA_ROOT):
+    width, height = int(width), int(height)
+    # Sanitize file path
     filename = filename.replace("/../", "/")
     filename = filename.replace("//", "/")
     while filename.startswith(os.sep):
         filename = filename[1:]
+    # open with PIL
     image = Image.open(filename, root=root)
     if width:
         # Scale height
@@ -39,7 +42,8 @@ def serve_crop(request, filename, width, height, root=settings.MEDIA_ROOT):
     response = HttpResponse(mimetype="image/jpg")
     image.save(response, "JPEG")
     return response
-    
+
+# Serve a solid black image at the specified size
 def black(request, width, height):
     width, height = int(width), int(height)
     black = ImageCalc.new("RGB", (width, height))
@@ -63,12 +67,12 @@ def issue_toc(request, issue):
     issue = models.Issue.objects.get(id=issue)
     return render_to_response('toc.html', {'issue':issue}, context_instance=RequestContext(request))
 
-# Serve issue toc
+# Serve Cover Image Grid
 def issue_cover(request, issue):
     cover_image = models.Issue.objects.get(id=issue).cover
     return render_to_response('cover.html', {'cover':cover_image}, context_instance=RequestContext(request))
 
-# Treesaver Issues File
+# Treesaver Resources File, containing grids and metadata
 def resources(request, issue):
     context = {
         'grids' : models.Grid.objects.all(),

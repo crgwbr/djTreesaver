@@ -112,8 +112,8 @@ class Article(models.Model):
     slug = models.CharField(max_length=200, help_text="Used in the article url")
     author = models.CharField(max_length=200, null=True, blank=True)
     issue = models.ForeignKey(Issue, related_name="articles")
-    content = models.TextField(help_text="Article Content in Html or Markdown formatting")
-    is_markdown = models.BooleanField(help_text="Is the content in Markdown formatting?")
+    content = models.TextField(help_text="Article Content in Html")
+    #is_markdown = models.BooleanField(help_text="Is the content in Markdown formatting?")
     images = models.ManyToManyField(Image, null=True, blank=True)
     grid = models.ForeignKey(Grid, null=True, blank=True)
     
@@ -135,7 +135,6 @@ class Article(models.Model):
         article.slug = slug
         article.issue = issue
         article.content = html
-        article.is_markdown = False
         article.save()
         # Images
         namelist = epub_document.get_namelist()
