@@ -54,13 +54,14 @@ def black(request, width, height):
 
 # Redirect to cover of issue    
 def view_issue(request, issue):
-    article = models.Issue.objects.get(id=issue).articles.all()[0]
-    return redirect('djTreesaver.views.issue_cover', issue=issue)
+    issue = models.Issue.objects.get(id=issue)
+    return redirect('djTreesaver.views.issue_cover', issue=issue.pk)
 
 # Serve article
 def view_article(request, issue, slug):
-    article = models.Article.objects.get(slug=slug, issue__pk=issue)
-    return render_to_response('article.html', {'article':article}, context_instance=RequestContext(request))
+    issue = models.Issue.objects.get(id=issue)
+    article = models.Article.objects.get(slug=slug, issue=issue)
+    return render_to_response('article.html', {'article':article, 'issue':issue}, context_instance=RequestContext(request))
 
 # Serve issue toc
 def issue_toc(request, issue):
@@ -69,14 +70,16 @@ def issue_toc(request, issue):
 
 # Serve Cover Image Grid
 def issue_cover(request, issue):
-    cover_image = models.Issue.objects.get(id=issue).cover
-    return render_to_response('cover.html', {'cover':cover_image}, context_instance=RequestContext(request))
+    issue = models.Issue.objects.get(id=issue)
+    cover_image = issue.cover
+    return render_to_response('cover.html', {'cover':cover_image, 'issue':issue}, context_instance=RequestContext(request))
 
 # Treesaver Resources File, containing grids and metadata
 def resources(request, issue):
     context = {
         'grids' : models.Grid.objects.all(),
         'publication' : models.Issue.objects.get(id=issue).publication,
+        'issue' : models.Issue.objects.get(id=issue),
     }
     return render_to_response('resources.html', context, context_instance=RequestContext(request))
 

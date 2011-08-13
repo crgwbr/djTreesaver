@@ -56,6 +56,8 @@ class Document():
         return BeautifulStoneSoup(manifest.read())
         
     def open(self, filename):
+        if not filename.startswith(EPUB_PREFIX):
+            filename = os.path.join(EPUB_PREFIX, filename)
         return self.contents.open(filename)
         
     def get_namelist(self, filter_func=lambda name: True):
@@ -89,8 +91,10 @@ class Document():
         
     def get_chapters(self):
         """
-        Returns list of all chapter tags in the manifest
+        Returns list of all filenames in the manifest
         to get the filename, access the href attribute of
         each item in the list.
         """
-        return self.manifest.findAll('item', id=lambda tag: tag.startswith('chapter'))
+        ids = self.manifest.findAll('itemref', idref=lambda idref: idref != 'cover')
+        chapters = map(lambda tag: self.manifest.find(id=tag['idref'])['href'], ids)
+        return chapters

@@ -6,11 +6,11 @@
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro:500,700&v2' rel='stylesheet' type='text/css'>
 
 <!-- Links to Treesaver resources and stylesheets -->
-<link rel="stylesheet" href="../treesaver.css" />
-<link rel="resources" href="resources.html" />
-<link rel="contents prefetch" href="toc.html" />
+<link rel="stylesheet" href="/treesaver/treesaver.css" />
+<link rel="resources" href="{% url djTreesaver.views.resources issue=issue.pk %}" />
+<link rel="contents prefetch" href="{% url djTreesaver.views.issue_toc issue=issue.pk %}" />
 
 <!-- JS Library's; Make sure Treesaver is last. -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
-<script src="../ui.js" type="text/javascript"></script>
-<script src="../treesaver.js"></script>
+<script src="/treesaver/ui.js" type="text/javascript"></script>
+<script src="/treesaver/treesaver.js"></script>

@@ -11,9 +11,9 @@ settings.TEMPLATE_DIRS = TEMPLATE_DIRS
 
 urlpatterns = patterns('',
     # Files
-    url(r'^issue/treesaver.css$', 'django.views.static.serve', { 'document_root':os.path.join(path, 'css'),    'path':'treesaver.css', }),
-    url(r'^issue/treesaver.js$',  'django.views.static.serve', { 'document_root':os.path.join(path, 'static'), 'path':'treesaver.js', }),
-    url(r'^issue/ui.js$',         'django.views.static.serve', { 'document_root':os.path.join(path, 'static'), 'path':'ui.js', }),
+    url(r'^treesaver.css$', 'django.views.static.serve', { 'document_root':os.path.join(path, 'css'),    'path':'treesaver.css', }),
+    url(r'^treesaver.js$',  'django.views.static.serve', { 'document_root':os.path.join(path, 'static'), 'path':'treesaver.js', }),
+    url(r'^ui.js$',         'django.views.static.serve', { 'document_root':os.path.join(path, 'static'), 'path':'ui.js', }),
     url(r'^static/(?P<path>.+)$', 'django.views.static.serve', { 'document_root':os.path.join(path, 'static')}),
     
     # Images
@@ -28,5 +28,5 @@ urlpatterns = patterns('',
     url(r'^issue/(?P<issue>[0-9]+)/ts-cover.html$',  'djTreesaver.views.issue_cover'),
     url(r'^issue/(?P<issue>[0-9]+)/toc.html$',       'djTreesaver.views.issue_toc'),
     url(r'^issue/(?P<issue>[0-9]+)/resources.html$', 'djTreesaver.views.resources'),
-    url(r'^issue/(?P<issue>[0-9]+)/(?P<slug>[0-9a-zA-Z\.\_\-]+)$', 'djTreesaver.views.view_article'),
+    url(r'^issue/(?P<issue>[0-9]+)/(?P<slug>[0-9a-zA-Z\.\_\-\/]+)$', 'djTreesaver.views.view_article'),
 )

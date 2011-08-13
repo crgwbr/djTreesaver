@@ -89,8 +89,7 @@ class Issue(models.Model):
                     if name.endswith(ext) and not ('cover.' in name): # Exclude the cover
                         return True
             return False
-        articles = document.get_namelist(file_is_good)
-        print articles
+        articles = document.get_chapters()
         for filename in articles:
             article = document.open(filename)
             slug = filename.replace('%s/' % epub.EPUB_PREFIX, '')
@@ -142,11 +141,12 @@ class Article(models.Model):
             image = Image()
             find_img = lambda path: path.endswith(tag['src'])
             image_file = filter(find_img, namelist)
-            image.image.save(os.path.join(issue.uuid, image_file[0]), ContentFile(epub_document.open(image_file[0]).read()))
-            image.alt = tag.get('alt', '')
-            image.title = tag.get('title', '')
-            image.save()
-            article.images.add(image)
+            if len(image_file) > 0:
+                image.image.save(os.path.join(issue.uuid, image_file[0]), ContentFile(epub_document.open(image_file[0]).read()))
+                image.alt = tag.get('alt', '')
+                image.title = tag.get('title', '')
+                image.save()
+                article.images.add(image)
         article.save()
         return article
         
