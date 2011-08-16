@@ -2,12 +2,10 @@ from django.conf import settings
 from django.conf.urls.defaults import *
 import os
 
-path = os.path.realpath(os.path.dirname(__file__))
+# Activate Custom Settings
+from djTreesaver import settings as ts_settings
 
-# Append our templates folder
-TEMPLATE_DIRS = list(settings.TEMPLATE_DIRS)
-TEMPLATE_DIRS.append(os.path.join(path, 'templates'))
-settings.TEMPLATE_DIRS = TEMPLATE_DIRS
+path = os.path.realpath(os.path.dirname(__file__))
 
 urlpatterns = patterns('',
     # Files

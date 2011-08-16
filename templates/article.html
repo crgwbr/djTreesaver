@@ -7,7 +7,7 @@
 </head>
 <body>
 	<!-- Set your default grid here. -->
-    <article data-grids="{% if article.grid %}{{ article.grid.class_id }}{% else %}feature1{% endif %}">
+    <article data-grids="{{ grid }}">
 	    <div class="microdata" itemscope>
 	        <span itemprop="publication">{{ article.issue.publication }}</span>
 	        <span itemprop="title">{{ article.title }}&mdash;</span>

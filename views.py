@@ -61,7 +61,18 @@ def view_issue(request, issue):
 def view_article(request, issue, slug):
     issue = models.Issue.objects.get(id=issue)
     article = models.Article.objects.get(slug=slug, issue=issue)
-    return render_to_response('article.html', {'article':article, 'issue':issue}, context_instance=RequestContext(request))
+    # Grid selection
+    default_grid = settings.TREESAVER.DEFAULT_GRID
+    if article.grid:
+        default_grid = article.grid.class_id 
+    grid = request.GET.get('grid', default_grid)
+    # Render
+    context = {
+        'article' : article,
+        'issue' : issue,
+        'grid' : grid,
+    }
+    return render_to_response('article.html', context, context_instance=RequestContext(request))
 
 # Serve issue toc
 def issue_toc(request, issue):
