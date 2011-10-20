@@ -90,6 +90,3 @@ Thanks to Filipe Fortes and Bram Stein for Treesaver :: http://treesaverjs.com/
 
 Seasons is created and developed by Scott Kellum in collaboration with the Treesaver team :: http://treesaver.net/
 
-Digininja Skin / Chrome style for Seasons by Craig Weber :: http://crgwbr.com
-
-djTreesaver for Django by Craig Weber :: http://crgwbr.com
