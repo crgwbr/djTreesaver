@@ -24,7 +24,7 @@ urlpatterns = patterns('',
     # Views
     url(r'^issue/(?P<issue>[0-9]+)/$',               'djTreesaver.views.view_issue'),
     url(r'^issue/(?P<issue>[0-9]+)/ts-cover.html$',  'djTreesaver.views.issue_cover'),
-    url(r'^issue/(?P<issue>[0-9]+)/toc.html$',       'djTreesaver.views.issue_toc'),
+    url(r'^issue/(?P<issue>[0-9]+)/toc.json$',       'djTreesaver.views.issue_toc'),
     url(r'^issue/(?P<issue>[0-9]+)/resources.html$', 'djTreesaver.views.resources'),
     url(r'^issue/(?P<issue>[0-9]+)/(?P<slug>[0-9a-zA-Z\.\_\-\/]+)$', 'djTreesaver.views.view_article'),
 )

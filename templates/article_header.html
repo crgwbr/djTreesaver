@@ -1,16 +1,19 @@
-<!-- Author: Craig Weber http://crgwbr.com -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width = device-width, height = device-height, maximum-scale=1.0, minimum-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<!-- LINK TO THE STYLE SHEET -->
+<link rel="stylesheet" href="/treesaver/treesaver.css" />
 
 <!-- Web Type links go here -->
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro:500,700&v2' rel='stylesheet' type='text/css'>
 
-<!-- Links to Treesaver resources and stylesheets -->
-<link rel="stylesheet" href="/treesaver/treesaver.css" />
-<link rel="resources" href="{% url djTreesaver.views.resources issue=issue.pk %}" />
-<link rel="contents prefetch" href="{% url djTreesaver.views.issue_toc issue=issue.pk %}" />
+<!-- RESOURCES.HTML CONTAINS THE PAGE LAYOUTS -->
+<link rel="resources prefetch" href="{% url djTreesaver.views.resources issue=issue.pk %}" />
 
-<!-- JS Library's; Make sure Treesaver is last. -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
-<script src="/treesaver/ui.js" type="text/javascript"></script>
-<script src="/treesaver/treesaver.js"></script>
+<!-- TOC.JSON CONTAINS THE ARTICLE ORDER -->
+<link rel="index" href="{% url djTreesaver.views.issue_toc issue=issue.pk %}" type="application/json">
+
+<!-- LOAD TREESAVER -->
+<script src="_/js/treesaver-0.9.3b.js"></script>

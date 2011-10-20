@@ -8,14 +8,9 @@
 <body>
 	<!-- Set your default grid here. -->
     <article data-grids="{{ grid }}">
-	    <div class="microdata" itemscope>
-	        <span itemprop="publication">{{ article.issue.publication }}</span>
-	        <span itemprop="title">{{ article.title }}&mdash;</span>
-	    </div>
-	
-        <figure>
+      <figure>
 		    <h1 data-sizes="title fallback">{{ article.title }}</h1>
-		</figure>
+		  </figure>
         
         <!-- Article Image Figures -->
 		{% if article.images.count > 0 %}

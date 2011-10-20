@@ -77,7 +77,7 @@ def view_article(request, issue, slug):
 # Serve issue toc
 def issue_toc(request, issue):
     issue = models.Issue.objects.get(id=issue)
-    return render_to_response('toc.html', {'issue':issue}, context_instance=RequestContext(request))
+    return render_to_response('toc.json', {'issue':issue}, context_instance=RequestContext(request))
 
 # Serve Cover Image Grid
 def issue_cover(request, issue):

@@ -1,0 +1,15 @@
+{
+  "issueName": "{{ issue.name }}",
+  "contents": [
+  {% for article in issue.articles.all %}
+    {
+      "url": "{{ article.slug }}",
+      "img": "{{ article.toc_image }}",
+      "publication": "{{ cover.article.issue.name }}",
+      "subject": "{{ cover.article.name }}",
+      "title": "{{ article.title }}"
+    },
+  {% endfor %}
+    {}
+  ]
+}

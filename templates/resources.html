@@ -3,29 +3,48 @@
 <head>
 	<title>Resources</title>
 </head>
-	
+
 <body>
+
     <h1>{{ publication }}</h1>
-	
-	<div class="chrome">
-		<div class="viewer"></div>
-		<div class="toc">
-			<div id="toc-tab">
-				<div>
-				    <span>Contents</span>
-				</div>
-			</div>
-			<div data-bind="toc" class="toc-alley">
-			    <div data-bind="article" class="article template">
-				    <a data-bind="url:href" class="url">
-	                    <img data-bind="thumb:src" class="thumb" height="40px" width="40px" />
-	                    <span data-bind="title" class="title"></span>
-	                </a>
-	            </div>
-	        </div>
-	    </div>
-	</div>
-   	<div class="lightbox">
+
+		<div class="chrome">
+		  
+		  <!--PAGES ARE PLACED IN THE VIEWER-->
+			<div class="viewer"></div>
+			
+			<!--NAVIGATION "CHROME" BELOW-->
+      <nav>
+        
+        <!--SIDEBAR GENERATED FROM "_/toc.json"-->
+        <div class="sidebar contents">
+          <!--A CLASS OF SCROLL ADDS TOUCH BASED SCROLLING SUPPORT-->
+          <div class="content scroll" data-ts-template="publication">
+            {{#contents}}
+                <a href="{{url}}">
+                  <span class="title">{{title}}</span>
+                  <img src="{{img}}" alt="" />
+                </a>
+            {{/contents}}
+          </div>
+          <!--SHOW OR HIDE CONTENTS-->
+          <button class="open-sidebar">Show Contents</button>
+          <button class="close-sidebar">Hide Contents</button>
+          <button class="toggle-sidebar">Toggle Contents</button>
+        </div>
+        
+        <!--PAGE NUMBERS-->
+        <div class="numbering" data-ts-template="position">{{pagenumber}}/{{pagecount}}</div>
+        
+        <!--PREVIOUS/NEXT BUTTONS-->
+        <button class="prev">Prev</button>
+        <button class="next">Next</button>
+        <button class="prevArticle">Prev Article</button>
+        <button class="nextArticle">Next Article</button>
+      </nav>
+		</div>
+
+    <div class="lightbox">
       <div class="container"></div>
     </div>
 
