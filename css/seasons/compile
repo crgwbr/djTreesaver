@@ -1,1 +1,0 @@
-sass --style compressed --watch style.sass:../treesaver.css

@@ -1,0 +1,44 @@
+// SKIN //
+
+// Style the pages themselves here.
+// To keep things tidy it is recommended that only pages get styled here.
+// UI elements should be styled in the "chrome" directory.
+
+
+// TYPOGRAPHIC STYLES
+// Keep vertical spacing and all line-height attributes a multiple of your line-height to avoid text flow bugs. Do not use "!important" on any measurements here
+// Only use system fonts for paragraphs and other large bodies of text. If web fonts are used line endings will be missing or duplicated.
+p {
+  color: $text;
+  text-indent: $line-height;
+  &.noindent, &.caption, .keeptogether & {
+    text-indent: 0;
+    }
+  &.caption {
+    text-align: left;
+    }
+  }
+
+h1, h2, h3, h4 ,h5 ,h6 {
+  font-family: $subhed;
+  font-weight: bold;
+  }
+
+h1 {
+  font-family: $hed;
+  @include solid($line-height);
+  }
+
+// GENERAL GRID STYLES
+// Styles here apply to every grid in your publication
+.grid {
+  margin: $gutter;
+  padding: 0 $margin;
+  background: $page;
+  }
+
+// GRID STYLES
+// Styles to specify grids in your publication, for example the department grid.
+.department.grid {
+  
+  }

@@ -1,81 +1,38 @@
-/*--              SEASONS                --*/
-/*--  the design framework for treesaver --*/
-
-
 // CREDITS
-// Thanks to Filipe Fortes and Bram Stein for Treesaver :: http://treesaverjs.com/
-// Thanks to Tim Murtaugh and Michael Pick for HTML5 Reset :: http://html5reset.org/
+//  Thanks to Filipe Fortes and Bram Stein for Treesaver :: http://treesaverjs.com/
+//  Thanks to Tim Murtaugh and Michael Pick for HTML5 Reset :: http://html5reset.org/
 //
-// Seasons is created and developed by Scott Kellum in collaboration with the Treesaver team :: http://treesaver.net/
-// Digininja Skin / Chrome style by Craig Weber :: http://crgwbr.com
+//  Seasons is created and developed by Scott Kellum in collaboration with the Treesaver team :: http://treesaver.net/
 
 // This is a styling framework to be used with Treesaver
-// It creates a flexable yet solid foundation for building templates.
+//  It creates a flexable yet solid foundation for building templates.
 //
 // ** To run you need to have SASS installed: http://sass-lang.com/ **
-//  To run, just watch the "sass" folder
+//  The, just watch the "sass" folder from the project directory.
+//  sass --watch sass:html/_/css
 
-// BASIC FUNCTIONS AND CSS RESET:
-@import -/core/functions
-
-
-
-// Select the skin you wish to use -
-@import -/skins/digininja
-
-// Grid Styles
+// IMPORT TOOLS AND RESET:
+$reset: true // set to false if you don’t want the bundled reset
+@import lib/tools
 
 
-.feature1.grid
-  &.page-1
-    /*background: $primary*/
-    background-image: url('/treesaver/static/linen-texture.jpg')
-    text-align: center
-    .runningtitle
-      margin: 30px 50px 70px 50px
-      padding: 0 0 20px 0
-      font-family: $headline
-      +solid($line-height*1.5)
-      border-bottom: 3px double #555
-      background: none
-      *
-        opacity: 0.3
-    .title
-      padding-top: 50px
-      color: white
-      opacity: 0.3
-      +letterpress(#222)
-      h1
-        +solid($line-height*3)
-        letter-spacing: -4px
-        word-spacing: 5px
-        padding: 30px 100px
-  .runningtitle
-    position: absolute
-    background-image: url('/treesaver/static/linen-texture.jpg')
-    top: 0px
-    left: 0px
-    right: 0px
-    height: $line-height
-    padding: 3px 10px
-    font-weight: bold
-    *
-      color: white
-      opacity: 0.7
 
-.cover.grid
-  overflow: visible
-  background:none
-  padding: 0
-  .container
-    top: 0 !important
+// Configuration:
+@import config
 
-// Select the chrome style you wish to use -
-@import -/chrome/digininja
+// Pages:
+@import pages
+
+// Chrome:
+@import chrome
 
 
 
 // CORE TREESAVER FUNCTIONALITY:
-@import -/core/core
+@import lib/core
 
-// PLUGINS
+
+// PLUGINS:
+//@import plugin/ios-perfect
+//@import plugin/mobile
+//@import plugin/no-treesaver

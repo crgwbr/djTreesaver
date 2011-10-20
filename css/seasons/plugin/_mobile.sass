@@ -8,54 +8,41 @@ $cover_width: 250px
 
 // Remove mobile grids for desktop users
 .mobile.grid
-  +over9000
+  +remove
+  margin: 0
+  +border-radius(0)
+  +box-shadow(none)
+  border: none
 
 // All the mobile grid styles here.
 .smallscreen.mobile
-  // GRID RESET
-  background: $page
   .viewer
-    top: 0
-    right: 0
+    padding: 0
+    margin: 0
     left: 0
-  .grid
-    +over9000
+    right: 0
+    top: 0
+    bottom: 0
+    background: $page
+  .grid:not(.fixed)
+    +remove
   .mobile.grid
+    opacity: 1 !important
+    margin: 0
     width: 280px
     min-width: 280px
     padding: 20px
-    border: none
-    +box-shadow(none)
-    margin: 0
-    &#previousPage, &#nextPage
-      opacity: 1
   .column, .container
     width: 280px
     min-width: 280px
 
-// IMAGE + PAGE RATIOS
-=ratio($width, $height, $cols)
+
+// SHRINK IMAGES + PAGES
+=ratio($width, $height, $cols: $columns)
   // Force resize images
-  .mobile.grid
-    .img
-      &.single-#{$width}x#{$height}
-        img
-          width: 280px
-          height: 280px * ( $height / $width )
-  // Fixed page ratios
-  @for $i from 1 through $cols
-    .grid.fixed
-      &.w#{$i}col.r#{$width}x#{$height}
-        +width($i)
-        height: ($column * $i + $gutter * ( $i - 1 )) * ( $height / $width )
-      // Force resize images
-    .fixed.grid, .sizetocontainer.grid
-      .img.w#{$i}col
-        text-align: center
-        &.small-single-#{$width}x#{$height}, &.single-#{$width}x#{$height}, &.small-double-#{$width}x#{$height}, &.double-#{$width}x#{$height}, &.triple-#{$width}x#{$height}, &.quad-#{$width}x#{$height}
-          img
-            +width($i)
-            height: ($column * $i + $gutter * ( $i - 1 )) * ( $height / $width )
+  .mobile.grid .container [ratio="#{$width}x#{$height}"] img
+    width: 280px
+    height: 280px * ( $height / $width )
 
 // Pull in the ratios defined in the skin
 +ratios

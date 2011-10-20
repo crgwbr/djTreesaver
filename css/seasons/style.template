@@ -1,37 +1,41 @@
-/*--              SEASONS                --*/
-/*--  the design framework for treesaver --*/
-
-
 // CREDITS
-// Thanks to Filipe Fortes and Bram Stein for Treesaver :: http://treesaverjs.com/
-// Thanks to Tim Murtaugh and Michael Pick for HTML5 Reset :: http://html5reset.org/
+//  Thanks to Filipe Fortes and Bram Stein for Treesaver :: http://treesaverjs.com/
+//  Thanks to Tim Murtaugh and Michael Pick for HTML5 Reset :: http://html5reset.org/
 //
-// Seasons is created and developed by Scott Kellum in collaboration with the Treesaver team :: http://treesaver.net/
-// Digininja Skin / Chrome style by Craig Weber :: http://crgwbr.com
+//  Seasons is created and developed by Scott Kellum in collaboration with the Treesaver team :: http://treesaver.net/
 
 // This is a styling framework to be used with Treesaver
-// It creates a flexable yet solid foundation for building templates.
+//  It creates a flexable yet solid foundation for building templates.
 //
 // ** To run you need to have SASS installed: http://sass-lang.com/ **
-//  To run, just watch the "sass" folder
+//  The, just watch the "sass" folder from the project directory.
+//  sass --watch sass:html/_/css
 
-// BASIC FUNCTIONS AND CSS RESET:
-@import -/core/functions
+// IMPORT TOOLS AND RESET:
+$reset: true // set to false if you don’t want the bundled reset
+@import lib/tools
 
 
 
-// Select the skin you wish to use -
-@import -/skins/digininja
+// Configuration:
+@import config
+
+// Pages:
+@import pages
 
 // Grid Styles
 {{ grids }}
 
-// Select the chrome style you wish to use -
-@import -/chrome/digininja
+// Chrome:
+@import chrome
 
 
 
 // CORE TREESAVER FUNCTIONALITY:
-@import -/core/core
+@import lib/core
 
-// PLUGINS
+
+// PLUGINS:
+//@import plugin/ios-perfect
+//@import plugin/mobile
+//@import plugin/no-treesaver
