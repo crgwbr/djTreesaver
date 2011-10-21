@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 from django.conf import settings
+from django.utils import simplejson
 from images import Image, Grid
 from PIL import Image as ImageCalc
 import os
@@ -77,7 +78,17 @@ def view_article(request, issue, slug):
 # Serve issue toc
 def issue_toc(request, issue):
     issue = models.Issue.objects.get(id=issue)
-    return render_to_response('toc.json', {'issue':issue}, context_instance=RequestContext(request))
+    toc = {
+        "issueName": issue.title,
+        "contents": [{
+            "url": article.slug,
+            "img": article.toc_image(),
+            "publication": issue.publication.name,
+            "subject": article.title,
+            "title": article.title} for article in issue.articles.all()],
+    }
+    return HttpResponse(simplejson.dumps(toc))
+    
 
 # Serve Cover Image Grid
 def issue_cover(request, issue):
