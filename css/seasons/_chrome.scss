@@ -12,9 +12,54 @@
   }
 
 nav {
-  display: block;
-  position: absolute;
-  z-index: 1;
+  button { display: none; }
+  .sidebar.contents {
+    cursor: pointer;
+    font: 11px/1.5 Helvetica, Arial, sans-serif;
+    background: #999;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    left: -260px;
+    overflow: auto;
+    -webkit-box-shadow: 0 0 10px #000;
+    -moz-box-shadow: 0 0 10px #000;
+    box-shadow: 0 0 10px #000;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-transition-delay: initial;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.5s;
+    -moz-transition-timing-function: ease-in-out;
+    -moz-transition-delay: initial;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: initial;
+    &.sidebar-active {
+        left: 0px;
+    }
+    a {
+      display: block;
+      padding: 0 0 25px 0;
+      border-bottom: 1px solid #222;
+      span {
+        display: inline-block;
+        width: 230px;
+        padding-left: 10px;
+      }
+      img {
+        display: inline-block;
+        width: 40px;
+        position: relative;
+        top: 15px;
+      }
+    }
+    }
   }
 
 .sidebar, .menu {

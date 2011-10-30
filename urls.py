@@ -10,7 +10,7 @@ path = os.path.realpath(os.path.dirname(__file__))
 urlpatterns = patterns('',
     # Files
     url(r'^treesaver.css$', 'django.views.static.serve', { 'document_root':os.path.join(path, 'css'),    'path': 'treesaver.css', }),
-    url(r'^treesaver\-0\.9\.3b\.js$',  'django.views.static.serve', { 'document_root':os.path.join(path, 'static'), 'path': os.path.join(path, 'static'), 'path':'treesaver-0.9.3b.js', }), }),
+    url(r'^treesaver\-0\.9\.3b\.js$',  'django.views.static.serve', { 'document_root': os.path.join(path, 'static'), 'path': 'treesaver-0.9.3b.js', }),
     url(r'^ui.js$',         'django.views.static.serve', { 'document_root': os.path.join(path, 'static'), 'path':'ui.js', }),
     url(r'^static/(?P<path>.+)$', 'django.views.static.serve', { 'document_root': os.path.join(path, 'static')}),
     

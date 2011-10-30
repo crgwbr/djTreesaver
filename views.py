@@ -98,7 +98,17 @@ def issue_cover(request, issue):
 
 # Treesaver Resources File, containing grids and metadata
 def resources(request, issue):
+    contents = \
+     """{{#contents}}
+        <a href="{{url}}">
+            <span class="title">{{title}}</span>
+            <img src="{{img}}" alt="" />
+        </a>
+        {{/contents}}"""
+    pagenumbers = '<div class="numbering" data-ts-template="position">{{pagenumber}}/{{pagecount}}</div>'
     context = {
+        'contents': contents,
+        'pagenumbers': pagenumbers,
         'grids' : models.Grid.objects.all(),
         'publication' : models.Issue.objects.get(id=issue).publication,
         'issue' : models.Issue.objects.get(id=issue),
