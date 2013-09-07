@@ -1,3 +1,9 @@
+# WARNING: This repo is no longer maintained.
+
+If you're looking for a great way to format and columnize content on the web, you should have a look at **[Paprless](https://github.com/silvermine/paprless)**.
+
+* * * * *
+
 # djTreesaver
 
 ## Introduction
